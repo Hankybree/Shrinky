@@ -25,7 +25,6 @@ public class PlayerControls : MonoBehaviour
 
     private void OnCollisionStay()
     {
-        Debug.Log("Collided");
         isGrounded = true;
     }
 
