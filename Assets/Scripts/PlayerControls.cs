@@ -18,34 +18,34 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveForward();
-        moveBackward();
-        rotateLeft();
-        rotateRight();
+        MoveForward();
+        MoveBackward();
+        RotateLeft();
+        RotateRight();
     }
 
-    private void moveForward()
+    private void MoveForward()
     {
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
     }
-    private void moveBackward()
+    private void MoveBackward()
     {
         if (Input.GetKey(KeyCode.S))
         {
             transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
         }
     }
-    private void rotateLeft()
+    private void RotateLeft()
     {
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0f, rotateSpeed, 0f);
         }
     }
-    private void rotateRight()
+    private void RotateRight()
     {
         if (Input.GetKey(KeyCode.D))
         {
