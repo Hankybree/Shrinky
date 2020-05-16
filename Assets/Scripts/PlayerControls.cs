@@ -4,24 +4,38 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
-    private Rigidbody rb;
-
     [SerializeField] float moveSpeed;
     [SerializeField] float rotateSpeed;
+    [SerializeField] float jumpForce;
+
+    private Rigidbody rb;
+    private bool isGrounded;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
+    {
+        Movement();
+    }
+
+    private void OnCollisionStay()
+    {
+        Debug.Log("Collided");
+        isGrounded = true;
+    }
+
+    private void Movement()
     {
         MoveForward();
         MoveBackward();
         RotateLeft();
         RotateRight();
+        Jump();
     }
 
     private void MoveForward()
@@ -50,6 +64,15 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0f, rotateSpeed * -1, 0f);
+        }
+    }
+
+    private void Jump()
+    {
+        if(Input.GetKey(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
         }
     }
 }
