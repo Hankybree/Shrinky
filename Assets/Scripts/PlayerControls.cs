@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerControls : MonoBehaviour
 {
     private Rigidbody rb;
+
     [SerializeField] float moveSpeed;
+    [SerializeField] float rotateSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -40,14 +42,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0f, 5f, 0f);
+            transform.Rotate(0f, rotateSpeed, 0f);
         }
     }
     private void rotateRight()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0f, -5f, 0f);
+            transform.Rotate(0f, rotateSpeed * -1, 0f);
         }
     }
 }
