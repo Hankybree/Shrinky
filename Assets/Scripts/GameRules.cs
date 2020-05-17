@@ -10,12 +10,13 @@ public class GameRules : MonoBehaviour
 
     private Vector3 scaleChange;
 
-    private bool gameOver = false;
+    private bool gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         scaleChange = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class GameRules : MonoBehaviour
         {
             player.transform.localScale += scaleChange;
 
-            if(player.transform.localScale == new Vector3(0.1f, 0.1f, 0.1f))
+            if(player.transform.localScale.x <= 0.1f)
             {
                 GameOver();
             } 
