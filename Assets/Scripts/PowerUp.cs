@@ -20,6 +20,7 @@ public class PowerUp : MonoBehaviour
     {
         audioSource.GetComponent<PowerUpAudio>().PlayAudio();
         player.transform.localScale = new Vector3(1, 1, 1);
+        GameRules.powerUpInGame = false;
         Destroy(gameObject);
     }
 }

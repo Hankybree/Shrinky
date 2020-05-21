@@ -55,14 +55,14 @@ public class PlayerControls : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Rotate(0f, rotateSpeed, 0f);
+            transform.Rotate(0f, rotateSpeed * -1, 0f);
         }
     }
     private void RotateRight()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(0f, rotateSpeed * -1, 0f);
+            transform.Rotate(0f, rotateSpeed, 0f);
         }
     }
 

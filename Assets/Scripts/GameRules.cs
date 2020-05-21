@@ -8,6 +8,7 @@ public class GameRules : MonoBehaviour
 
     public GameObject player;
     public GameObject powerUp;
+    public static bool powerUpInGame = false;
 
     private Vector3 scaleChange;
 
@@ -18,13 +19,18 @@ public class GameRules : MonoBehaviour
     {
         scaleChange = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         gameOver = false;
-        Instantiate(powerUp, new Vector3(0f, 0.7f, 5f), powerUp.transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
         shrinkPlayer();
+
+        if(!powerUpInGame) 
+        {
+            powerUpInGame = true;
+            spawnPowerUp();
+        }
     }
 
     private void shrinkPlayer()
@@ -38,6 +44,14 @@ public class GameRules : MonoBehaviour
                 GameOver();
             } 
         }
+    }
+
+    private void spawnPowerUp() 
+    {
+        int x = Random.Range(-20, 20);
+        int z = Random.Range(-20, 20);
+
+        Instantiate(powerUp, new Vector3(x, 0.7f, z), powerUp.transform.rotation);
     }
 
     private void GameOver()
