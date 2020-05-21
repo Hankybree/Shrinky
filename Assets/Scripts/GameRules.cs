@@ -7,6 +7,7 @@ public class GameRules : MonoBehaviour
     [SerializeField] float scaleFactor;
 
     public GameObject player;
+    public GameObject powerUp;
 
     private Vector3 scaleChange;
 
@@ -17,6 +18,7 @@ public class GameRules : MonoBehaviour
     {
         scaleChange = new Vector3(scaleFactor, scaleFactor, scaleFactor);
         gameOver = false;
+        Instantiate(powerUp, new Vector3(0f, 0.7f, 5f), powerUp.transform.rotation);
     }
 
     // Update is called once per frame
