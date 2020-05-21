@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
 
     private void RestorePlayer()
     {
-        audioSource.GetComponent<AudioSource>().Play();
+        audioSource.GetComponent<PowerUpAudio>().PlayAudio();
         player.transform.localScale = new Vector3(1, 1, 1);
         Destroy(gameObject);
     }
